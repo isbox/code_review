@@ -1,4 +1,6 @@
 const moment = require('moment');
+const program = require('commander');
+const inquirer = require('inquirer');
 
 const TO_XIAN = [
   {
@@ -142,6 +144,21 @@ const flightSelect = function(outTime, returnTime, vip = false) {
   const minPrice = min(prices);
   result = result.filter(res => res.total === minPrice);
   console.log(bestOne(result));
-}
+};
 
-flightSelect('2019-01-03', '2019-02-03', true);
+inquirer.prompt([{
+  type: 'input',
+  name: 'travelTime',
+  message: '输入出发日期（YYYY-mm-dd）：'
+}, {
+  type: 'input',
+  name: 'backTime',
+  message: '输入返回日期（YYYY-mm-dd）：'
+}, {
+  type: 'input',
+  name: 'vip',
+  message: '是否是vip乘客：'
+}]).then(function (answers) {
+  const { travelTime, backTime, vip } = answers;
+  flightSelect(travelTime, backTime, vip);
+});
