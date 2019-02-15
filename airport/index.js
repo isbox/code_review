@@ -1,5 +1,4 @@
 const moment = require('moment');
-const program = require('commander');
 const inquirer = require('inquirer');
 
 const TO_XIAN = [
@@ -105,7 +104,7 @@ const bestOne = function(arr) {
   arr.map((res, index) => {
     const travelTime = res.travelTo.time.split(':');
     const returnTime = res.return.time.split(':');
-    const timeSub = 12 * 60 * 2 - Number(travelTime[0]) * 60 + Number(travelTime[1]) + Number(returnTime[0]) * 60 + Number(returnTime[1]);
+    const timeSub = Math.abs(12 * 60 * 2 - Number(travelTime[0]) * 60 + Number(travelTime[1]) + Number(returnTime[0]) * 60 + Number(returnTime[1]));
     recordIndex[timeSub] = index;
   })
   
