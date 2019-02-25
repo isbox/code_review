@@ -27,7 +27,7 @@ class Flight
   # attr_accessor :regular_weekdays_price, :regular_weekends_price, :reward_weekdays_price, :reward_weekends_price
 
   def initialize(flight)
-    @flight_number = flight['flight_number']
+    @flight_number = flight['number']
     @from = flight['from']
     @to = flight['to']
     @time = flight['time']

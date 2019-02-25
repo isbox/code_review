@@ -11,10 +11,10 @@ to_time = gets
 print "你的乘坐类型: "
 to_type = gets
 
-passenger_from = Passenger.new from_time, true
+passenger_from = Passenger.new from_time, from_type
 platform_from = Platform.new 'Xian'
 
-passenger_to = Passenger.new from_time, true
+passenger_to = Passenger.new from_time, to_type
 platform_to = Platform.new 'Chengdu'
 
 trickets_from = platform_from.trip(passenger_from.take_time, passenger_from.vip?)
